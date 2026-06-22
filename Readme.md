@@ -7,7 +7,7 @@
 ## Manifest
 Before you start working with components, be sure to familiarize yourself with our *philosophy*:
 
-**[minimorphism manifesto](./Manifest/Manifest.md)**
+**[minimorphism manifesto](https://github.com/minimorphism/mds-ui/blob/main/Manifest/Manifest.md)**
 
 ---
 ## Architecture

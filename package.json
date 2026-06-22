@@ -1,6 +1,10 @@
 {
 	"name": "@minimorphism/mds-ui",
 	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com"
+	},
 	"type": "module",
 	"private": false,
 	"main": "dist/index.js",
