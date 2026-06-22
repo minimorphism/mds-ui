@@ -1,0 +1,63 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Card
+
+@use "../../styles/colors" as c;
+
+.mds-card {
+  --card-text-color: #{c.$mds-black};
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 24px;
+  font-size: 16px;
+  border: 0px solid transparent;
+  font-family: "minimorphism";
+  background: transparent;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: transform, box-shadow;
+
+  &--white {
+    --card-text-color: #{c.$mds-black};
+    box-shadow: 0px 0px 17px 11px rgba(200, 200, 200, 0.25);
+  }
+
+  &--black {
+    --card-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--dark-gray {
+    --card-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    --card-text-color: #{c.$mds-black};
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  &--disabled {
+    --card-text-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+.mds-card-content {
+  position: relative;
+  z-index: 10;
+  color: var(--card-text-color);
+}

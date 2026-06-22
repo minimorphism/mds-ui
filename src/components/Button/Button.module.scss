@@ -1,0 +1,99 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Button
+
+@use "../../styles/colors" as c;
+
+.mds-button {
+  --btn-text-color: #{c.$mds-black};
+  --btn-font-size: 20px;
+  --btn-padding-y: 14px;
+  --btn-padding-x: 76px;
+  --btn-border-radius: 20px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--btn-border-radius);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  border: 0px solid transparent;
+  cursor: pointer;
+  font-family: "minimorphism";
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+
+  will-change: auto;
+  transition: none;
+
+  &--white {
+    --btn-text-color: #{c.$mds-black};
+    box-shadow: 0px 0px 17px 11px rgba(200, 200, 200, 0.25);
+  }
+
+  &--black {
+    --btn-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    --btn-text-color: #{c.$mds-black};
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  &--dark-gray {
+    --btn-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--disabled {
+    --btn-text-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &--sm {
+    --btn-font-size: 18px;
+    --btn-padding-y: 10px;
+    --btn-padding-x: 70px;
+    --btn-border-radius: 32px;
+  }
+
+  &--lg {
+    --btn-font-size: 32px;
+    --btn-padding-y: 30px;
+    --btn-padding-x: 72px;
+    --btn-border-radius: 32px;
+  }
+}
+
+.mds-button-text {
+  position: relative;
+  z-index: 10000;
+  pointer-events: none;
+  color: var(--btn-text-color);
+  display: inline-block;
+
+  transition:
+    transform 0.1s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.1s ease;
+  will-change: transform, opacity;
+}
+
+.mds-button:hover:not(:active) .mds-button-text {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.mds-button:active .mds-button-text {
+  transform: scale(0.94) translateY(1.5px);
+  opacity: 0.85;
+  transition:
+    transform 0.04s ease-out,
+    opacity 0.04s ease-out;
+}

@@ -1,0 +1,132 @@
+// Copyright (c) 2026 minimorphism
+// Styles for MobileModal
+
+@use "../../styles/colors" as c;
+
+.mds-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+  z-index: 9998;
+
+  &--open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.mds-modal-wrapper {
+  position: fixed;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  transform: none;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  transition: opacity 0.3s ease-out;
+
+  &--open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.gl-widget {
+  position: relative;
+  border: 0px solid transparent;
+  font-family: "minimorphism", sans-serif;
+  background: transparent;
+  will-change: transform, box-shadow;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.mds-modal-bg {
+  flex-direction: column;
+  width: 100%;
+  border-radius: 50px;
+  padding: 24px 24px 60px 24px;
+  color: #{c.$mds-white};
+  box-sizing: border-box;
+
+  box-shadow:
+    0px -4px 20px rgba(0, 0, 0, 0.5),
+    0px 0px 15px rgba(255, 255, 255, 0.1);
+}
+
+.mds-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mds-modal-capsule {
+  align-items: center;
+  padding: 6px 20px 6px 6px;
+  border-radius: 20px;
+  color: #{c.$mds-white};
+  box-sizing: border-box;
+  box-shadow:
+    0px 1px 4px rgba(0, 0, 0, 0.5),
+    0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+.mds-modal-capsule-icon {
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 30px;
+  border-radius: 15%;
+  margin-right: 12px;
+  color: #{c.$mds-black};
+  box-sizing: border-box;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.mds-modal-title {
+  font-size: 16px;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.mds-modal-close-btn {
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
+  cursor: pointer;
+  color: #{c.$mds-white};
+  box-sizing: border-box;
+  box-shadow:
+    0px 1px 4px rgba(0, 0, 0, 0.5),
+    0px 0px 10px rgba(255, 255, 255, 0.05);
+
+  svg {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.mds-modal-content {
+  position: relative;
+  z-index: 10;
+}

@@ -1,0 +1,83 @@
+// Copyright (c) 2026 minimorphism
+// Styles for RadioGroup
+
+.mds-radio-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mds-radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mds-radio-bg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-sizing: border-box;
+  transition:
+    transform 0.1s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  will-change: transform;
+
+  &--white {
+    --radio-ring: #ffffff;
+    --radio-dot: #ffffff;
+    border: 4px solid var(--radio-ring);
+    box-shadow: 0px 0px 17px 11px rgba(200, 200, 200, 0.25);
+  }
+
+  &--black {
+    --radio-ring: #000000;
+    --radio-dot: #000000;
+    border: 4px solid var(--radio-ring);
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    --radio-ring: #f2f2f2;
+    --radio-dot: #f2f2f2;
+    border: 4px solid var(--radio-ring);
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.mds-radio-dot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--radio-dot);
+  transform: scale(0);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 10;
+}
+
+.mds-radio-input:checked + .mds-radio-bg .mds-radio-dot {
+  transform: scale(1.3);
+}
+
+.mds-radio-wrapper:active .mds-radio-bg {
+  transform: scale(0.92);
+}
+
+.mds-radio-input:disabled + .mds-radio-bg {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

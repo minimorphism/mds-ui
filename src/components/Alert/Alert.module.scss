@@ -1,0 +1,103 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Alert
+
+@use "../../styles/colors" as c;
+
+.mds-alert-wrapper {
+  position: fixed;
+  bottom: var(--alert-bottom, 32px);
+  top: var(--alert-top, auto);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  transition: opacity 0.3s ease-out;
+
+  &--open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.mds-alert {
+  --alert-text-color: #{c.$mds-black};
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 20px;
+
+  border-radius: 1.2em;
+  padding: 0.35em 0.6em 0.35em 0.35em;
+
+  border: 0px solid transparent;
+  font-family: "minimorphism";
+  background: transparent;
+  will-change: transform, box-shadow;
+
+  &--white {
+    --alert-text-color: #{c.$mds-black};
+    box-shadow: 0px 0px 17px 11px rgba(200, 200, 200, 0.25);
+  }
+
+  &--black {
+    --alert-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    --alert-text-color: #{c.$mds-black};
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.mds-alert-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  will-change: box-shadow;
+
+  width: 2.7em;
+  height: 2.7em;
+  border-radius: 0.8em;
+  margin-right: 0.6em;
+
+  &--white {
+    color: #{c.$mds-black};
+    box-shadow: 0px 0px 17px 11px rgba(200, 200, 200, 0.25);
+  }
+  &--black {
+    color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+  &--anodized {
+    color: #{c.$mds-black};
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  > svg {
+    position: relative;
+    z-index: 10;
+
+    width: 2em;
+    height: 2em;
+    fill: currentColor;
+  }
+}
+
+.mds-alert-text {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  color: var(--alert-text-color);
+}

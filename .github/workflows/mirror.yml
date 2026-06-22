@@ -1,0 +1,55 @@
+name: Mirror Sync
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure SSH and Git
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          echo "${{ secrets.GITLAB_DEPLOY_KEY }}" > ~/.ssh/id_gitlab
+          chmod 600 ~/.ssh/id_gitlab
+
+          echo "${{ secrets.RADICLE_DEPLOY_KEY }}" > ~/.ssh/id_radicle
+          chmod 600 ~/.ssh/id_radicle
+
+          cat <<EOF > ~/.ssh/config
+          Host gitlab.com
+              IdentityFile ~/.ssh/id_gitlab
+              StrictHostKeyChecking no
+          EOF
+
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Mirror to GitLab
+        run: |
+          git remote add gitlab git@gitlab.com:minimorphism/mds-ui.git
+          git push gitlab main --tags --force
+
+      - name: Mirror to Radicle
+        run: |
+          cat <<EOF >> ~/.ssh/config
+
+          Host seed.radicle.xyz
+              IdentityFile ~/.ssh/id_radicle
+              IdentitiesOnly yes
+              StrictHostKeyChecking no
+          EOF
+
+          eval $(ssh-agent -s)
+          echo "${{ secrets.RADICLE_PASSPHRASE }}" | setsid ssh-add ~/.ssh/id_radicle
+
+          git remote add radicle ssh://seed.radicle.xyz/rad:z2FRspjg1Cs95ef4MkWfFqYVhzF2n.git
+          git push --prune radicle "refs/remotes/origin/*:refs/heads/*" --tags --force

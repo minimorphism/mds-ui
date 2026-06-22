@@ -1,0 +1,158 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Input.tsx
+
+@use "../../styles/colors" as c;
+
+.mds-input-container {
+  --input-text-color: #{c.$mds-black};
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 12px 12px;
+  border: 0px solid transparent;
+  cursor: text;
+  font-family: "minimorphism";
+  background: transparent;
+  color: var(--input-text-color);
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  width: 100%;
+
+  transition: none;
+  will-change: auto;
+
+  &--white {
+    --input-text-color: #{c.$mds-black};
+    box-shadow: 0px 0px 17px 11px rgba(203, 203, 203, 0.25);
+  }
+
+  &--black {
+    --input-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    --input-text-color: #{c.$mds-black};
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  &--dark-gray {
+    --input-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--disabled {
+    --input-text-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.8;
+    .mds-input-field::placeholder {
+      opacity: 1;
+    }
+  }
+
+  &--sm {
+    padding: 10px 10px;
+    border-radius: 16px;
+  }
+
+  &--lg {
+    padding: 14px 14px;
+    border-radius: 18px;
+  }
+}
+
+.mds-input-field {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--input-text-color);
+  font-family: inherit;
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  letter-spacing: 1.5px;
+
+  &::placeholder {
+    color: var(--input-text-color);
+    opacity: 0.1;
+  }
+
+  &--password {
+    padding-right: 40px;
+  }
+}
+
+.mds-input-container--sm .mds-input-field {
+  font-size: 18px;
+}
+.mds-input-container--lg .mds-input-field {
+  font-size: 32px;
+}
+
+.mds-input-eye {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--input-text-color);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  outline: none;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.mds-input-container--multiline {
+  align-items: flex-start;
+
+  .mds-input-field {
+    resize: none;
+    overflow: hidden;
+    line-height: 1.5;
+    min-height: 100px;
+    padding-bottom: 14px;
+  }
+}
+
+.mds-input-container--with-icon {
+  position: relative;
+}
+
+.mds-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.mds-input-field--with-icon {
+  padding-left: 44px;
+}

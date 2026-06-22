@@ -1,0 +1,16 @@
+// Copyright (c) 2026 minimorphism
+// Global styles
+
+@use "./styles/fonts";
+@use "./styles/colors" as c;
+
+:root {
+  $mds-white: #{c.$mds-white};
+  $mds-black: #{c.$mds-black};
+}
+
+body {
+  margin: 0;
+  font-family: "minimorphism";
+  background-color: c.$mds-white;
+}

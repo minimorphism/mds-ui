@@ -1,0 +1,42 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Loader
+
+.loader {
+  display: inline-block;
+  animation: rotate 2s linear infinite;
+
+  svg circle {
+    stroke: currentColor;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+  }
+
+  &--black {
+    color: #000000;
+  }
+  &--white {
+    color: #ffffff;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -124px;
+  }
+}

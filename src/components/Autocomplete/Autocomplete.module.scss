@@ -1,0 +1,191 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Autocomplete
+
+@use "../../styles/colors" as c;
+
+.mds-autocomplete {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "minimorphism";
+
+  --acc-text-color: #{c.$mds-black};
+  --acc-title-color: rgba(177, 177, 177, 0.35);
+  --acc-chevron-color: #{c.$mds-black};
+
+  &--white {
+    --acc-text-color: #{c.$mds-black};
+    --acc-title-color: rgba(177, 177, 177, 0.35);
+    --acc-chevron-color: #{c.$mds-black};
+  }
+
+  &--black {
+    --acc-text-color: #{c.$mds-white};
+    --acc-title-color: rgba(177, 177, 177, 0.35);
+    --acc-chevron-color: #{c.$mds-white};
+  }
+
+  &--anodized {
+    --acc-text-color: #{c.$mds-black};
+    --acc-title-color: rgba(0, 0, 0, 0.35);
+    --acc-chevron-color: #{c.$mds-black};
+  }
+}
+
+.mds-autocomplete-body-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 40px;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 20px;
+  pointer-events: none;
+  will-change: box-shadow;
+}
+
+.mds-autocomplete-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85.5%;
+  min-height: 52px;
+  padding: 0px 0px 0px 18px;
+  border-radius: 20px;
+
+  background: transparent;
+  border: none;
+  cursor: text;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform, box-shadow;
+}
+
+.mds-autocomplete-input {
+  flex: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--acc-text-color);
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: 2.5px;
+  outline: none;
+  font-family: "minimorphism";
+  padding: 0;
+  padding-right: 16px;
+
+  &::placeholder {
+    color: var(--acc-title-color);
+  }
+}
+
+.mds-autocomplete-icon-box {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+  will-change: box-shadow;
+}
+
+.mds-autocomplete-chevron {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 7.5px;
+  transform: rotate(180deg);
+  color: var(--acc-chevron-color);
+
+  &--open {
+    transform: rotate(0deg);
+  }
+}
+
+.mds-autocomplete-content-grid {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 40px);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--open {
+    grid-template-rows: 1fr;
+  }
+}
+
+.mds-autocomplete-content-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mds-autocomplete-content {
+  padding: 16px 24px 24px 16px;
+  color: var(--acc-text-color);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .mds-autocomplete-content-grid--open & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mds-autocomplete-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.96;
+  }
+}
+
+.mds-autocomplete-item-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  flex-shrink: 0;
+
+  &--black {
+    background-color: #{c.$mds-black};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+  &--anodized {
+    background-color: #ececec;
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.mds-autocomplete--black .mds-autocomplete-content {
+  --acc-text-color: #{c.$mds-white};
+}
+
+.mds-autocomplete-body-bg--dark-gray,
+.mds-autocomplete-body-bg--anodized,
+.mds-autocomplete-body-bg--white {
+  opacity: 1;
+}

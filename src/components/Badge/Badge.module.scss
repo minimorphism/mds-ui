@@ -1,0 +1,75 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Badge
+
+.mds-badge-container {
+  position: relative;
+  display: inline-flex;
+}
+
+.mds-badge-target {
+  display: inline-flex;
+  position: relative;
+
+  padding: 20px;
+  margin: -20px;
+
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+
+  -webkit-mask-image: radial-gradient(
+    circle at right 22px top 22px,
+    transparent 12.5px,
+    black 13px
+  );
+  mask-image: radial-gradient(
+    circle at right 22px top 22px,
+    transparent 12.5px,
+    black 13px
+  );
+
+  & > * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+.mds-badge {
+  --badge-text-color: #000000;
+
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  z-index: 50;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  user-select: none;
+  font-family: "minimorphism", sans-serif;
+
+  &--black {
+    --badge-text-color: #ffffff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  &--white {
+    --badge-text-color: #000000;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &--anodized {
+    --badge-text-color: #000000;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.mds-badge-content {
+  position: relative;
+  z-index: 10;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--badge-text-color);
+  line-height: 1;
+}

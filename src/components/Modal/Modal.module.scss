@@ -1,0 +1,60 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Modal
+
+@use "../../styles/colors" as c;
+
+.mds-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &--open {
+    opacity: 1;
+  }
+}
+
+.mds-modal-box {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 24px;
+  padding: 32px;
+  background: transparent;
+  transform: scale(0.95) translateY(10px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: "minimorphism";
+
+  color: var(--modal-text-color, #{c.$mds-black});
+
+  &--open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  &--white {
+    --modal-text-color: #{c.$mds-black};
+    box-shadow: 0px 0px 17px 11px rgba(200, 200, 200, 0.25);
+  }
+
+  &--black {
+    --modal-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    --modal-text-color: #{c.$mds-black};
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.mds-modal-content {
+  position: relative;
+  z-index: 10;
+}

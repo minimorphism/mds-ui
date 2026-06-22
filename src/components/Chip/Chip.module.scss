@@ -1,0 +1,59 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Chip
+
+@use "../../styles/colors" as c;
+
+.mds-chip {
+  --chip-text-color: #{c.$mds-black};
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 5px 13px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 0px solid transparent;
+  cursor: pointer;
+  font-family: "minimorphism";
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+
+  &--white {
+    --chip-text-color: #{c.$mds-black};
+    box-shadow: 0px 0px 17px 11px rgba(200, 200, 200, 0.25);
+  }
+
+  &--black {
+    --chip-text-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    --chip-text-color: #{c.$mds-black};
+    box-shadow:
+      0px 4px 15px rgba(0, 0, 0, 0.35),
+      0px -2px 10px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.mds-chip-text {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  color: var(--chip-text-color);
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+.mds-chip:active .mds-chip-text {
+  transform: scale(0.95);
+}
+
+.mds-chip--disabled {
+  opacity: 1;
+}

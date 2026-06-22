@@ -1,0 +1,73 @@
+// Copyright (c) 2026 minimorphism
+// Styles for ButtonGroup
+
+@use "../../styles/colors" as c;
+
+.mds-button-group {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+
+  --separator-color: transparent;
+
+  &--white {
+    --separator-color: transparent;
+  }
+  &--black {
+    --separator-color: #{c.$mds-white};
+  }
+  &--anodized {
+    --separator-color: #{c.$mds-black};
+  }
+  &--dark-gray {
+    --separator-color: #{c.$mds-white};
+  }
+}
+
+.mds-button-group__cell {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.mds-button-group__item {
+  border-radius: 0 !important;
+  margin: 0;
+  position: relative;
+  z-index: 0;
+
+  &:hover {
+    z-index: 1;
+  }
+
+  .mds-button-group__cell:first-child & {
+    border-radius: 20px 0 0 20px !important;
+  }
+
+  .mds-button-group__cell:last-child & {
+    border-radius: 0 20px 20px 0 !important;
+  }
+
+  .mds-button-group__cell:first-child:last-child & {
+    border-radius: 20px !important;
+  }
+}
+
+.mds-button-group__separator {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 98%;
+  background-color: var(--separator-color);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.mds-button-group__active {
+  opacity: 1;
+}

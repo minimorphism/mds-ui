@@ -1,0 +1,205 @@
+// Copyright (c) 2026 minimorphism
+// Styles for Select
+
+@use "../../styles/colors" as c;
+
+.mds-select {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "minimorphism";
+
+  --sel-text-color: #{c.$mds-black};
+  --sel-title-color: rgba(177, 177, 177, 0.35);
+  --sel-chevron-color: #{c.$mds-black};
+
+  &--white {
+    --sel-text-color: #{c.$mds-black};
+    --sel-title-color: rgba(177, 177, 177, 0.35);
+    --sel-chevron-color: #{c.$mds-black};
+  }
+
+  &--black {
+    --sel-text-color: #{c.$mds-white};
+    --sel-title-color: rgba(177, 177, 177, 0.35);
+    --sel-chevron-color: #{c.$mds-white};
+  }
+
+  &--anodized {
+    --sel-text-color: #{c.$mds-black};
+    --sel-title-color: rgba(0, 0, 0, 0.35);
+    --sel-chevron-color: #{c.$mds-black};
+  }
+}
+
+.mds-select-body-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 40px;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 20px;
+  pointer-events: none;
+  will-change: box-shadow;
+}
+
+.mds-select-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85.5%;
+  min-height: 52px;
+  padding: 0px 0px 0px 18px;
+  border-radius: 20px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform, box-shadow;
+}
+
+.mds-select-header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  overflow: hidden;
+  padding-right: 16px;
+}
+
+.mds-select-value {
+  color: var(--sel-text-color);
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: 2.5px;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &--placeholder {
+    color: var(--sel-title-color);
+  }
+}
+
+.mds-select-icon-box {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+  will-change: box-shadow;
+}
+
+.mds-select-chevron {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 7.5px;
+  transform: rotate(180deg);
+  color: var(--sel-chevron-color);
+
+  &--open {
+    transform: rotate(0deg);
+  }
+}
+
+.mds-select-content-grid {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 40px);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--open {
+    grid-template-rows: 1fr;
+  }
+}
+
+.mds-select-content-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mds-select-content {
+  padding: 16px 24px 24px 16px;
+  color: var(--sel-text-color);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .mds-select-content-grid--open & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mds-select-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.96;
+  }
+}
+
+.mds-select-item-text--selected {
+  font-weight: 400;
+}
+
+.mds-select-item-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &--black {
+    background-color: #{c.$mds-black};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--anodized {
+    background-color: #ececec;
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.5),
+      0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  &--white {
+    background-color: #{c.$mds-white};
+    box-shadow:
+      0px 1px 4px rgba(0, 0, 0, 0.15),
+      0px 0px 8px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.mds-select--black .mds-select-content {
+  --sel-text-color: #{c.$mds-white};
+}
