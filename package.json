@@ -1,6 +1,6 @@
 {
 	"name": "@minimorphism/mds-ui",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com"
@@ -10,8 +10,14 @@
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"files": ["dist"],
-	"sideEffects": ["**/*.css", "**/*.scss", "src/**/*Shader.ts"],
+	"files": [
+		"dist"
+	],
+	"sideEffects": [
+		"**/*.css",
+		"**/*.scss",
+		"src/**/*Shader.ts"
+	],
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
