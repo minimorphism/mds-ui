@@ -3,21 +3,19 @@
 	"version": "1.0.1",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com"
+		"url": "https://github.com/minimorphism/mds-ui.git"
 	},
+	"bugs": {
+		"url": "https://github.com/minimorphism/mds-ui.git"
+	},
+	"homepage": "https://github.com/minimorphism/mds-ui.git",
 	"type": "module",
 	"private": false,
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
-	"sideEffects": [
-		"**/*.css",
-		"**/*.scss",
-		"src/**/*Shader.ts"
-	],
+	"files": ["dist"],
+	"sideEffects": ["**/*.css", "**/*.scss", "src/**/*Shader.ts"],
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
