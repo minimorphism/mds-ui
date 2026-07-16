@@ -226,7 +226,7 @@ export const buildUniforms = (
 
 	const shapeScale =
 		Math.min(layout.width, layout.height) / (baseScaleHeight * dpr);
-	const mult = layout.visualScale * shapeScale;
+	const mult = layout.visualScale * Math.min(shapeScale, 1.3);
 
 	const PADDING = 140 * mult;
 	const u_box = new Float32Array([
