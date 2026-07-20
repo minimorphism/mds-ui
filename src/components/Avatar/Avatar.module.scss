@@ -36,8 +36,8 @@
 
   &--black {
     --person-color: #ffffff;
-    --avatar-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5),
-      0px 0px 10px rgba(255, 255, 255, 0.15);
+    --avatar-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2),
+      0px 0px 4px rgba(255, 255, 255, 0.05);
     --person-shadow: 0px 0px 11.3px rgba(255, 255, 255, 0.2),
       0px 1px 5px rgba(0, 0, 0, 0.4),
       inset 0px 83px 119px -92px rgba(255, 255, 255, 0.3),
@@ -96,9 +96,9 @@
 
 .mds-avatar__head {
   position: absolute;
-  top: 25%;
-  width: 40%;
-  height: 40%;
+  top: 23%;
+  width: 42%;
+  height: 44%;
   border-radius: 50%;
   z-index: 2;
   background-color: var(--person-color);
@@ -107,9 +107,9 @@
 
 .mds-avatar__body {
   width: 70%;
-  height: 45%;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  height: 42%;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
   z-index: 1;
   margin-bottom: -5%;
   background-color: var(--person-color);
