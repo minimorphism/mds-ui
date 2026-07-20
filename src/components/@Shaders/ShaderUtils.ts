@@ -76,7 +76,7 @@ export const globalVariantStyles: Record<string, VariantConfig> = {
 				x: 0,
 				y: -79,
 				blur: 94.8,
-				spread: -24,
+				spread: -54,
 				color: [0.0, 0.0, 0.0, 0.5],
 			},
 			{
