@@ -4,10 +4,10 @@
 import React, { useRef, useCallback, useId, useEffect } from "react";
 import styles from "./Chip.module.scss";
 import { registerWidget, unregisterWidget } from "../../webgl/WebGLStore";
-import type { DisableVariants } from "../../types";
+import type { Variants } from "../../types";
 
 export type ChipProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-	variant?: DisableVariants<"dark-gray">;
+	variant?: Variants;
 };
 
 export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(
