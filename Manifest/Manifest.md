@@ -1,4 +1,4 @@
-# Minimorphism Design System 1.0 (MDS) — Manifesto
+# minimorphism Design System 1.0 (MDS) — Manifesto
 
 ## The Design Philosophy of Minimorphism
 
@@ -10,7 +10,7 @@ We looked around and realized: design had gone to extremes.
 *   On the other, there was **Neumorphism**, which looks beautiful in pictures but is unwieldy in reality.
 
 We were looking for a middle ground: a balance between aesthetics and function.  
-Thus, **Minimorphism** was born.
+Thus, **minimorphism** was born.
 
 This is not just a set of UI kits. It is a philosophy of **Digital Materiality**, built on three pillars: *Physics, Material, and Light*.
 
@@ -68,7 +68,7 @@ The digital world is hard and pixelated. We make it tactile.
 ### CONCLUSION
 
 We created this style to bring emotion back to digital finance.  
-**Minimorphism is when you feel the interface with your fingertips.**
+**minimorphism is when you feel the interface with your fingertips.**
 
 Use these principles. Create interfaces that have weight.
 
