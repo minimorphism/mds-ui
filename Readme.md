@@ -4,7 +4,7 @@
 **mds-ui** is a package of basic components for implementing ***minimorphism*** style interfaces. Created specifically for fintech products in the ***minimorphism ecosystem***, where premium tactility, physicality of objects, and a strict monochrome aesthetic are essential.
 
 ---
-## Manifest
+## The Manifesto
 Before you start working with components, be sure to familiarize yourself with our *philosophy*:
 
 **[minimorphism Manifesto](https://github.com/minimorphism/mds-ui/blob/main/Manifest/Manifest.md)**
