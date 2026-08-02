@@ -1,7 +1,7 @@
-# MDS-UI
+# mds-ui
 
 ## Description 
-**MDS-UI** is a package of basic components for implementing ***minimorphism*** style interfaces. Created specifically for fintech products in the ***minimorphism ecosystem***, where premium tactility, physicality of objects, and a strict monochrome aesthetic are essential.
+**mds-ui** is a package of basic components for implementing ***minimorphism*** style interfaces. Created specifically for fintech products in the ***minimorphism ecosystem***, where premium tactility, physicality of objects, and a strict monochrome aesthetic are essential.
 
 ---
 ## Manifest
@@ -11,7 +11,7 @@ Before you start working with components, be sure to familiarize yourself with o
 
 ---
 ## Architecture
-The main technical difference between **MDS** and classic **UI** libraries is the separation of physical form and its optical properties.
+The main technical difference between **mds** and classic **UI** libraries is the separation of physical form and its optical properties.
 
 To achieve volume without sacrificing performance, a *two-layer* architecture is used:
 
@@ -35,7 +35,7 @@ To achieve volume without sacrificing performance, a *two-layer* architecture is
 3. **Bottom Layer (WebGLCanvas)**: A single, high-performance Canvas that renders accurate, physically based shadows and glows for all **UI** elements simultaneously using shaders.
 
 ---
-## Use MDS-UI
+## Use mds-ui
 
 Before implementing *components* in your projects, you must complete several steps. Detailed documentation for each component is available in **StoryBook**.
 
