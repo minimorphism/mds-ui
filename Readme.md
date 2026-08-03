@@ -107,7 +107,7 @@ Command for run Unit-Tests
 ---
 ## LICENSE
 
-Distributed under the **GPLv3** license. The full license text is available in the [LICENSE](./LICENSE) file in the repository root.
+The source code of this npm package is distributed under the **GPLv3** license, but the design style of **minimorphism** is distributed under **CC-BY-NC 4.0**. View licenses: [LICENSES](./Licenses/)
 
 ***
 
