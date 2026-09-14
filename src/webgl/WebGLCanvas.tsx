@@ -12,7 +12,7 @@ import {
 } from "./WebGLStore";
 
 const widgetVertexShaderSource = `
-precision mediump float;
+precision highp float;
 attribute vec2 a_position;
 uniform vec4 u_box;
 uniform vec2 u_resolution;
