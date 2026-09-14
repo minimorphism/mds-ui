@@ -1,7 +1,7 @@
 // Copyright (c) 2026 minimorphism
 // Main GLSL Shader for Widgets
 
-precision mediump float;
+precision highp float;
 
 uniform vec2 u_resolution;
 uniform vec4 u_rect;
